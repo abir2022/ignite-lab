@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IgniteLab | Live Training</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400;500&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf8ff;
+            overflow-x: hidden;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#643f00",
+                      "inverse-primary": "#2fd9f4",
+                      "outline": "#6c797d",
+                      "on-tertiary-fixed": "#2a1800",
+                      "surface-muted": "#F1F5F9",
+                      "tertiary-fixed": "#ffddb5",
+                      "primary-fixed-dim": "#2fd9f4",
+                      "on-background": "#131b2e",
+                      "primary-container": "#22d3ee",
+                      "on-tertiary-container": "#6e4600",
+                      "primary-fixed": "#a2eeff",
+                      "primary": "#006877",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#ffdbca",
+                      "surface-tint": "#006877",
+                      "on-primary-fixed-variant": "#004e5a",
+                      "surface-container-low": "#f2f3ff",
+                      "outline-variant": "#bbc9cd",
+                      "surface": "#faf8ff",
+                      "surface-container-high": "#e2e7ff",
+                      "on-secondary-container": "#5c2400",
+                      "surface-base": "#FFFFFF",
+                      "inverse-surface": "#283044",
+                      "tertiary-container": "#ffb13b",
+                      "tertiary": "#835400",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#783200",
+                      "glass-fill": "rgba(255, 255, 255, 0.7)",
+                      "on-primary-container": "#005763",
+                      "glass-border": "rgba(255, 255, 255, 0.4)",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#001f25",
+                      "secondary": "#9d4300",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#131b2e",
+                      "surface-bright": "#faf8ff",
+                      "surface-variant": "#dae2fd",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#dae2fd",
+                      "surface-dim": "#d2d9f4",
+                      "secondary-container": "#fd761a",
+                      "inverse-on-surface": "#eef0ff",
+                      "surface-container": "#eaedff",
+                      "background": "#faf8ff",
+                      "on-surface-variant": "#3c494c",
+                      "secondary-fixed-dim": "#ffb690",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#341100",
+                      "tertiary-fixed-dim": "#ffb957",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Hanken Grotesk"],
+                      "label-md": ["Geist"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "label-sm": ["Geist"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-glass-fill dark:bg-inverse-surface/80 border-b border-glass-border shadow-[0_4px_20px_rgba(34,211,238,0.15)] h-16">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-full w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="terminal">terminal</span>
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary dark:text-primary-fixed tracking-tight">IgniteLab</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 items-center">
+<span class="font-label-md text-label-md text-on-surface-variant cursor-pointer hover:bg-primary-container/20 transition-colors px-2 py-1 rounded-lg">Documentation</span>
+<span class="font-label-md text-label-md text-primary font-bold cursor-pointer transition-colors px-2 py-1 rounded-lg">Live</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border-2 border-primary-container">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a young engineering student in a high-tech laboratory environment. Soft focus laboratory equipment in the background with clean, professional lighting. The student is smiling slightly, conveying confidence and engagement with the learning platform's futuristic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_R9TREXTqcYCnAhmh67qAEPDChU65veoWPkqE8k7HIkTbCAm4zOv_yaWy9SSAeIsakNzbqMLZO2j0_Bk9g4YfLD6fOU4IEt4zNGSoIRNjZQLtI460-QEhCWIRFVIYDAWHnTBxLudfUI46lhvHfWb2rPtaiUhD4jDGRVbu3Lq36NdwUDHPGJQlscNfpKH-ymawWqnIdf3TPdaAP-fSQ3vWGkZhGwiM7WzApI-wUNxXQEGYJaiICrjZm4R9CNxw6gpR2vxSGQaR6VM"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col pt-16 pb-16 md:pb-0">
+<!-- Video Stream Container (Dark Focus) -->
+<section class="w-full aspect-video md:h-[442px] bg-black relative flex flex-col overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 z-10 pointer-events-none"></div>
+<img alt="Live Stream" class="w-full h-full object-cover" data-alt="A cinematic wide shot of a futuristic classroom with a professional instructor demonstrating complex code on a large transparent glass screen. The lighting is dominated by deep blues and vibrant cyan neon accents, reflecting the high-tech IgniteLab brand. The instructor is in a focused posture, surrounded by digital interface overlays and glowing data visualizations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOjugSJ6b8dljKT0UNiICXSZIH2gBYT2B9aZ0-Q37SplfjWLhlW2rV-Hfg3WuVA0WqySx_ZkMPwAFZ2DadTW4eZKuWD4EgyRdt_vR6hn6rCrkqs7VOniDWsMwubmN94Dz5CMVJF4YRvrVGFslCmztGlRZh_UVaRDoz_yuVa2Fnl01mh21XhRKyI-fhNN6-HN5RU3NSe83jc2aPPJsZwlKJxjhFymlWaLuc-3UdyTwx99YPJ1MSqoBAIob7wWLmstKx3TjPWWkrPCI"/>
+<!-- Video UI Overlays -->
+<div class="absolute top-4 left-4 z-20 flex items-center gap-2">
+<div class="bg-error px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+<span class="text-[10px] font-bold text-white tracking-widest uppercase">Live</span>
+</div>
+<div class="bg-black/50 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-2 border border-white/10">
+<span class="material-symbols-outlined text-white text-[14px]" data-icon="group">group</span>
+<span class="text-[12px] font-medium text-white">1,284 Watching</span>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 z-20 flex gap-2">
+<button class="bg-glass-fill/20 backdrop-blur-md p-2 rounded-lg border border-white/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-white" data-icon="fullscreen">fullscreen</span>
+</button>
+<button class="bg-glass-fill/20 backdrop-blur-md p-2 rounded-lg border border-white/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-white" data-icon="settings">settings</span>
+</button>
+</div>
+</section>
+<!-- Scrollable Content Area -->
+<section class="flex-1 flex flex-col bg-surface overflow-y-auto">
+<!-- Quick Navigation Tabs -->
+<div class="flex border-b border-outline-variant bg-surface px-margin-mobile sticky top-0 z-30">
+<button class="flex-1 py-4 text-center border-b-2 border-primary text-primary font-bold font-label-md text-label-md">Chat</button>
+<button class="flex-1 py-4 text-center text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors">Resources</button>
+<button class="flex-1 py-4 text-center text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors">QA</button>
+</div>
+<div class="p-gutter space-y-gutter">
+<!-- Lab Shortcut Card -->
+<div class="bg-glass-fill border border-glass-border rounded-xl p-4 shadow-[0_4px_20px_rgba(34,211,238,0.15)] backdrop-blur-lg flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="science">science</span>
+</div>
+<div>
+<p class="font-headline-md text-[16px] text-primary">Quantum Circuit Simulator</p>
+<p class="text-[12px] text-on-surface-variant">Active Lab Module 04</p>
+</div>
+</div>
+<button class="bg-secondary-container text-white px-4 py-2 rounded-full font-label-sm text-label-sm shadow-lg active:scale-90 transition-all">
+                        Launch Lab
+                    </button>
+</div>
+<!-- Lesson Info -->
+<div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-1">Architecture of Neural Networks</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Dr. Elena Vance • Level 12 Quantum Lab</p>
+</div>
+<!-- Live Chat Feed -->
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex-shrink-0 flex items-center justify-center text-[10px] font-bold text-primary border border-primary-container">JS</div>
+<div class="bg-surface-container-low p-3 rounded-2xl rounded-tl-none border border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-primary mb-1">Julian Smith</p>
+<p class="font-body-md text-body-md text-on-surface">Can we use the React-Quantum hooks for this simulation?</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex-shrink-0 overflow-hidden border border-primary-container">
+<img alt="TA" data-alt="A portrait of a teaching assistant with vibrant blue digital reflections on her face. The style is clean and professional, matching the light-mode high-tech university aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc_nYIjV_15HLNLzf9_r1vxVfOiD8lpk5QrmrsIkC1wlvAqhgAuFnxgoLET-ym63m3w00dRy1SPQ1iijUZU4ZxoVYEspdH88-r2yswVCGMXv-vR7ozub6LnFX7B2cFVZFOSPlEvsgew1wliyBO5q_oo7Yivwy5VmO90JI1Fs1XY8erfrXvOVnofvMkEocdSEIfGt8juXIPInIMBjZis2Xo6GhidrYyoG0Ob4nW1iWzgRemtM6oOORYO-i5GlIkyEujGc4gc2uVYyo"/>
+</div>
+<div class="bg-primary-container/10 p-3 rounded-2xl rounded-tl-none border border-primary-container/20">
+<div class="flex items-center gap-2 mb-1">
+<p class="font-label-sm text-label-sm text-on-primary-container">Mentor Sarah</p>
+<span class="bg-primary text-white text-[8px] px-1 rounded">STAFF</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Absolutely, Julian. We'll be covering the hook integration in about 10 minutes!</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex-shrink-0 flex items-center justify-center text-[10px] font-bold text-secondary border border-secondary-container">ML</div>
+<div class="bg-surface-container-low p-3 rounded-2xl rounded-tl-none border border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-secondary mb-1">Marcus Lee</p>
+<p class="font-body-md text-body-md text-on-surface">The visualization on the stream is incredibly helpful for understanding the tensor flow.</p>
+</div>
+</div>
+</div>
+<!-- Chat Input Fixed Bottom Mobile -->
+<div class="flex items-center gap-2 pt-4 sticky bottom-0 bg-surface">
+<div class="flex-1 bg-surface-container-highest rounded-full px-4 py-2 flex items-center border border-outline-variant focus-within:border-primary transition-colors">
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-body-md text-on-surface" placeholder="Type a message..." type="text"/>
+<span class="material-symbols-outlined text-outline-variant" data-icon="mood">mood</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 backdrop-blur-lg bg-glass-fill dark:bg-inverse-surface/90 border-t border-glass-border shadow-[0_-4px_20px_rgba(34,211,238,0.1)] h-16 flex justify-around items-center px-2">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all duration-200 active:scale-90">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all duration-200 active:scale-90">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-label-sm text-label-sm">Labs</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container/30 text-on-primary-container rounded-xl px-3 py-1 transition-all duration-200 active:scale-90">
+<span class="material-symbols-outlined" data-icon="videocam" style="font-variation-settings: 'FILL' 1;">videocam</span>
+<span class="font-label-sm text-label-sm">Live</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all duration-200 active:scale-90">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-label-sm text-label-sm">Code</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all duration-200 active:scale-90">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-sm text-label-sm">Stats</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrilLab Virtual Systems | Coding Lab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#006877",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#835400",
+                        "primary-fixed-dim": "#2fd9f4",
+                        "outline": "#6c797d",
+                        "surface-container": "#eaedff",
+                        "secondary-container": "#fd761a",
+                        "surface-tint": "#006877",
+                        "surface-bright": "#faf8ff",
+                        "on-surface": "#131b2e",
+                        "surface-container-high": "#e2e7ff",
+                        "glass-border": "rgba(255, 255, 255, 0.4)",
+                        "tertiary-container": "#ffb13b",
+                        "surface-base": "#FFFFFF",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f2f3ff",
+                        "on-background": "#131b2e",
+                        "glass-fill": "rgba(255, 255, 255, 0.7)",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#bbc9cd",
+                        "tertiary-fixed-dim": "#ffb957",
+                        "surface-variant": "#dae2fd",
+                        "secondary-fixed": "#ffdbca",
+                        "inverse-surface": "#283044",
+                        "inverse-primary": "#2fd9f4",
+                        "background": "#faf8ff",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary-fixed-variant": "#783200",
+                        "on-primary-fixed-variant": "#004e5a",
+                        "primary-container": "#22d3ee",
+                        "surface-muted": "#F1F5F9",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#643f00",
+                        "secondary-fixed-dim": "#ffb690",
+                        "on-surface-variant": "#3c494c",
+                        "tertiary-fixed": "#ffddb5",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d2d9f4",
+                        "on-primary-container": "#005763",
+                        "surface-container-highest": "#dae2fd",
+                        "on-secondary-container": "#5c2400",
+                        "on-tertiary-fixed": "#2a1800",
+                        "on-primary-fixed": "#001f25",
+                        "primary-fixed": "#a2eeff",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#6e4600",
+                        "inverse-on-surface": "#eef0ff",
+                        "surface": "#faf8ff",
+                        "secondary": "#9d4300"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-md": ["Geist"],
+                        "body-md": ["Inter"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editor-bg {
+            background-color: #0f172a;
+        }
+        .code-syntax-keyword { color: #c678dd; }
+        .code-syntax-string { color: #98c379; }
+        .code-syntax-function { color: #61afef; }
+        .code-syntax-comment { color: #5c6370; font-style: italic; }
+        .code-syntax-number { color: #d19a66; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-hidden">
+<!-- TopNavBar Shell -->
+<header class="bg-glass-fill backdrop-blur-md w-full h-16 sticky top-0 z-50 border-b border-glass-border shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-md text-headline-md font-bold text-primary">DrilLab</span>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Courses</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Simulations</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-base">
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md font-bold active:scale-95 transition-transform">Upgrade</button>
+<div class="flex items-center gap-base px-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">settings</span>
+</div>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A clean professional studio headshot of a diverse young software engineer with a friendly expression. The background is a soft, out-of-focus tech office with cool blue and cyan lighting. The aesthetic is modern corporate, using a light-mode palette with subtle glassmorphism effects in the environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAze5CAi825JFlmhj4Uu9gbUWYXWPI0RZPWcD4-YxA1HrIl_kuyrW1viIb2EToHNBwP1E2PhZ6Vw6o5-dbh459NNdhW74W-GTV4tDuwn6eAMqi-0mFmMD6KEGK9WX8_pFvp4fcw192bW9XEO1g7Xaz5AKjk-XAKJCqn2-AoT48h00bH5EQi3te0Ldv9P_uQeIbDipEIVnkdl_nz-_JWxZCI3QkJOGRx2C_yboBsYD7fVuk-NmrJ5Fy_ZI4LP7Nsh8TqJoPXtsjZy6Y"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar Shell (Lab Navigation) -->
+<aside class="h-full w-64 flex flex-col bg-surface-container-low shadow-md border-r border-outline-variant shrink-0">
+<div class="p-gutter">
+<div class="flex items-center gap-base mb-base">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">science</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary leading-tight">Virtual Lab 01</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Deep Sea Drilling</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-base space-y-1">
+<a class="flex items-center gap-base bg-primary text-on-primary rounded-lg p-3 active:scale-[0.98] transition-transform font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">lab_profile</span>
+                    Lab Workspace
+                </a>
+<a class="flex items-center gap-base text-on-surface-variant p-3 hover:bg-surface-variant hover:text-on-surface transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">construction</span>
+                    Toolbox
+                </a>
+<a class="flex items-center gap-base text-on-surface-variant p-3 hover:bg-surface-variant hover:text-on-surface transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+                    Manuals
+                </a>
+<a class="flex items-center gap-base text-on-surface-variant p-3 hover:bg-surface-variant hover:text-on-surface transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+                    Data Log
+                </a>
+<a class="flex items-center gap-base text-on-surface-variant p-3 hover:bg-surface-variant hover:text-on-surface transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+</nav>
+<div class="p-base border-t border-outline-variant space-y-1">
+<p class="px-3 py-2 text-on-surface-variant font-bold text-[10px] uppercase tracking-widest">Resources</p>
+<a class="flex items-center gap-base text-on-surface-variant p-3 hover:bg-surface-variant hover:text-on-surface transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">description</span>
+                    Documentation
+                </a>
+<a class="flex items-center gap-base text-on-surface-variant p-3 hover:bg-surface-variant hover:text-on-surface transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                    Archive
+                </a>
+<button class="w-full mt-gutter bg-error text-on-error py-3 rounded-xl font-bold active:scale-95 transition-transform flex items-center justify-center gap-base">
+<span class="material-symbols-outlined">logout</span>
+                    End Session
+                </button>
+</div>
+</aside>
+<!-- Main IDE Layout -->
+<main class="flex-1 flex flex-col min-w-0 bg-background">
+<!-- IDE Toolbar -->
+<div class="h-12 bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-gutter">
+<div class="flex items-center gap-base h-full">
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-variant rounded-t-lg border-x border-t border-outline-variant h-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<span class="font-label-md text-label-md">main.py</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 cursor-pointer text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-[16px]">description</span>
+<span class="font-label-md text-label-md">utils.py</span>
+</div>
+</div>
+<div class="flex items-center gap-base">
+<button class="flex items-center gap-base px-4 py-1.5 bg-gradient-to-r from-secondary to-secondary-container text-on-primary rounded-full font-bold shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                        Run Lab
+                    </button>
+<button class="flex items-center gap-base px-4 py-1.5 border border-outline-variant text-on-surface-variant rounded-full font-bold hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-[20px]">restart_alt</span>
+                        Reset
+                    </button>
+</div>
+</div>
+<div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+<!-- File Explorer (Integrated IDE sub-sidebar) -->
+<div class="w-48 bg-surface-container-low border-r border-outline-variant hidden lg:flex flex-col">
+<div class="p-base">
+<span class="font-label-sm text-label-sm font-bold text-outline uppercase tracking-widest">Explorer</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2 px-base py-1 bg-primary/10 text-primary border-l-2 border-primary cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+<span class="font-label-md text-label-md">src</span>
+</div>
+<div class="flex items-center gap-2 pl-8 pr-base py-1 text-on-surface bg-surface-variant/50 cursor-pointer">
+<span class="material-symbols-outlined text-[18px] text-primary">description</span>
+<span class="font-label-md text-label-md">main.py</span>
+</div>
+<div class="flex items-center gap-2 pl-8 pr-base py-1 text-on-surface-variant hover:bg-surface-variant cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">description</span>
+<span class="font-label-md text-label-md">utils.py</span>
+</div>
+<div class="flex items-center gap-2 pl-8 pr-base py-1 text-on-surface-variant hover:bg-surface-variant cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span class="font-label-md text-label-md">config.yaml</span>
+</div>
+</div>
+</div>
+<!-- Editor Area -->
+<div class="flex-1 flex flex-col overflow-hidden editor-bg relative">
+<div class="absolute right-gutter top-gutter z-10">
+<div class="bg-glass-fill backdrop-blur-md px-3 py-1 rounded-full border border-glass-border flex items-center gap-base">
+<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">VM Active</span>
+</div>
+</div>
+<div class="flex-1 overflow-auto p-gutter font-mono text-[14px] leading-relaxed">
+<div class="flex gap-gutter">
+<div class="text-right text-outline opacity-40 select-none">
+                                1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15
+                            </div>
+<div class="flex-1">
+<span class="code-syntax-comment"># Virtual Deep Sea Drilling Controller</span><br/>
+<span class="code-syntax-keyword">import</span> drilling_lib <span class="code-syntax-keyword">as</span> dsys<br/>
+<span class="code-syntax-keyword">import</span> time<br/><br/>
+<span class="code-syntax-keyword">def</span> <span class="code-syntax-function">initialize_drill</span>(depth_target):<br/>
+                                    print(<span class="code-syntax-string">"Calibrating system sensors..."</span>)<br/>
+                                    dsys.<span class="code-syntax-function">set_depth</span>(depth_target)<br/>
+                                    <span class="code-syntax-keyword">return</span> <span class="code-syntax-keyword">True</span><br/><br/>
+<span class="code-syntax-keyword">if</span> __name__ == <span class="code-syntax-string">"__main__"</span>:<br/>
+                                    target = <span class="code-syntax-number">12000</span> <span class="code-syntax-comment"># meters</span><br/>
+                                    <span class="code-syntax-keyword">if</span> <span class="code-syntax-function">initialize_drill</span>(target):<br/>
+                                        dsys.<span class="code-syntax-function">start_rotation</span>(rpm=<span class="code-syntax-number">120</span>)<br/>
+                                        print(<span class="code-syntax-string">"Operation started at 12,000m target."</span>)<br/>
+                                    <span class="code-syntax-keyword">else</span>:<br/>
+                                        print(<span class="code-syntax-string">"Error: Hardware failure."</span>)
+                            </div>
+</div>
+</div>
+<!-- Console / Terminal -->
+<div class="h-48 bg-[#020617] border-t border-slate-800 flex flex-col font-mono">
+<div class="flex items-center justify-between px-base py-1 bg-slate-900">
+<div class="flex items-center gap-base">
+<span class="font-label-sm text-label-sm text-slate-400 font-bold">TERMINAL</span>
+<span class="font-label-sm text-label-sm text-slate-500">python3</span>
+</div>
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-[16px] text-slate-500 cursor-pointer">delete</span>
+<span class="material-symbols-outlined text-[16px] text-slate-500 cursor-pointer">expand_less</span>
+</div>
+</div>
+<div class="flex-1 p-base overflow-auto text-slate-300 text-[13px]">
+<div class="flex gap-2">
+<span class="text-green-500">$</span>
+<span>python3 main.py</span>
+</div>
+<div class="mt-1 text-slate-400">[SYSTEM] Virtual Machine connection established.</div>
+<div class="text-slate-400">[SYSTEM] Loading drilling modules...</div>
+<div class="text-white mt-1">Calibrating system sensors...</div>
+<div class="text-white">Operation started at 12,000m target.</div>
+<div class="flex gap-2 mt-2 items-center">
+<span class="text-green-500">$</span>
+<span class="w-2 h-4 bg-primary animate-pulse"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side Hardware Status -->
+<aside class="w-72 bg-surface-container border-l border-outline-variant p-base hidden xl:block overflow-auto">
+<h3 class="font-headline-md text-[18px] text-primary mb-gutter">Hardware Status</h3>
+<div class="space-y-base">
+<!-- Stat Card -->
+<div class="bg-surface-container-lowest p-base rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="text-on-surface-variant font-label-sm text-label-sm font-bold uppercase tracking-widest">Core Temp</span>
+<span class="text-secondary font-bold">42°C</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container" style="width: 45%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-base rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="text-on-surface-variant font-label-sm text-label-sm font-bold uppercase tracking-widest">Drill RPM</span>
+<span class="text-primary font-bold">120</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container" style="width: 60%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-base rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="text-on-surface-variant font-label-sm text-label-sm font-bold uppercase tracking-widest">Pressure</span>
+<span class="text-primary font-bold">1,024 bar</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container" style="width: 82%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-gutter p-base bg-glass-fill border border-glass-border rounded-xl backdrop-blur-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-base leading-relaxed">
+<span class="font-bold text-primary">Lab Instruction:</span> Adjust the <code class="bg-surface-variant px-1 rounded">target_depth</code> parameter to reach the oil pocket at 15,400 meters. Monitor the core temperature to prevent hardware lockup.
+                        </p>
+<button class="w-full py-2 bg-surface-variant text-primary font-bold rounded-lg border border-primary/20 hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+                            View Module Specs
+                        </button>
+</div>
+<div class="mt-gutter h-48 rounded-xl overflow-hidden relative border border-outline-variant">
+<img alt="Drill simulation visualization" class="w-full h-full object-cover" data-alt="A highly detailed 3D technical simulation of a deep-sea drilling rig bit penetrating layers of subterranean rock. The lighting is dramatic, with glowing cyan indicators tracing the structure of the drill. The environment is dark and high-tech, using a professional color palette of deep navy, slate gray, and bright electric cyan highlights to simulate a real-time engineering HUD." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzWJHBjZi0XCpB1Rc4kYQyqRpQAcMWVCyMM2LCLKh4SGU51K6TcgIWZdmUOS78duIx9qCcTy9EYSHocGRJ-SHwDob_5_wBf1Dkt7vrz0U6-BNVmhhqxcb86mT8xXTWXNUL8G-gtXryPjbrXrGzHi_GWv1o-hSE2Vw8_U2RWDGasXERju0goFpuc5xmuz_T7X7qcI_qoJVL73E1lgSgG0JGGRCFAVKbJPWJixdpmJWw40WfEpvwy-q-aJHrhtgWLxw7ADBAWfg4r7M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-base">
+<span class="text-white text-[10px] font-bold uppercase tracking-widest">Live Telemetry View</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+<!-- Footer Shell -->
+<footer class="bg-surface-container-lowest w-full py-2 border-t border-outline-variant shrink-0">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-gutter">
+<span class="font-label-sm text-label-sm text-on-surface-variant">© 2024 DrilLab Virtual Systems. All rights reserved.</span>
+</div>
+<div class="flex gap-gutter items-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">API Docs</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#643f00",
+                      "inverse-primary": "#2fd9f4",
+                      "outline": "#6c797d",
+                      "on-tertiary-fixed": "#2a1800",
+                      "surface-muted": "#F1F5F9",
+                      "tertiary-fixed": "#ffddb5",
+                      "primary-fixed-dim": "#2fd9f4",
+                      "on-background": "#131b2e",
+                      "primary-container": "#22d3ee",
+                      "on-tertiary-container": "#6e4600",
+                      "primary-fixed": "#a2eeff",
+                      "primary": "#006877",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#ffdbca",
+                      "surface-tint": "#006877",
+                      "on-primary-fixed-variant": "#004e5a",
+                      "surface-container-low": "#f2f3ff",
+                      "outline-variant": "#bbc9cd",
+                      "surface": "#faf8ff",
+                      "surface-container-high": "#e2e7ff",
+                      "on-secondary-container": "#5c2400",
+                      "surface-base": "#FFFFFF",
+                      "inverse-surface": "#283044",
+                      "tertiary-container": "#ffb13b",
+                      "tertiary": "#835400",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#783200",
+                      "glass-fill": "rgba(255, 255, 255, 0.7)",
+                      "on-primary-container": "#005763",
+                      "glass-border": "rgba(255, 255, 255, 0.4)",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#001f25",
+                      "secondary": "#9d4300",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#131b2e",
+                      "surface-bright": "#faf8ff",
+                      "surface-variant": "#dae2fd",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#dae2fd",
+                      "surface-dim": "#d2d9f4",
+                      "secondary-container": "#fd761a",
+                      "inverse-on-surface": "#eef0ff",
+                      "surface-container": "#eaedff",
+                      "background": "#faf8ff",
+                      "on-surface-variant": "#3c494c",
+                      "secondary-fixed-dim": "#ffb690",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#341100",
+                      "tertiary-fixed-dim": "#ffb957",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Hanken Grotesk"],
+                      "label-md": ["Geist"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "label-sm": ["Geist"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-glass-fill border-b border-glass-border shadow-[0_4px_20px_rgba(34,211,238,0.15)] h-16">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+<span class="font-headline-lg text-primary tracking-tight text-headline-md-mobile md:text-headline-md">IgniteLab</span>
+</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-primary font-bold transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant hover:bg-primary-container/20 transition-colors px-3 py-1 rounded-lg" href="#">Labs</a>
+<a class="text-on-surface-variant hover:bg-primary-container/20 transition-colors px-3 py-1 rounded-lg" href="#">Live</a>
+<a class="text-on-surface-variant hover:bg-primary-container/20 transition-colors px-3 py-1 rounded-lg" href="#">Code</a>
+<a class="text-on-surface-variant hover:bg-primary-container/20 transition-colors px-3 py-1 rounded-lg" href="#">Stats</a>
+</nav>
+<div class="flex items-center gap-base">
+<div class="w-10 h-10 rounded-full border-2 border-primary-container bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a young engineering student in a clean, brightly lit modern office setting. He is wearing a crisp white shirt, looking forward with a confident and friendly expression. The background features soft bokeh of a high-tech lab with glowing blue computer screens and sleek white furniture, maintaining a professional light-mode aesthetic with vibrant cyan accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-mtUPJHOncfJXreSK5FGr9W04aTnVoqoEla9ts6tLS8pD2kYEyj09u3HgyCtFNhm5YDJRCEgUss1CCAz1B6bKph81BPfjKV3kk61Fpg4j039kNvg35Ms5m0ztdvnZ6xJripzPgISNswZYYIh_gQCZcuSz-68DIj8q6Ef-DAdd1OvrBCO_JESWg2acN33H_VBxEA1shFA85bTW8Z0gzRE5Ah3N2kNLbVbYYlENEvUsXV7vphuRyUAJrWZdVhEvXWmENa1teltBwM8"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-gutter">
+<!-- Profile Header Section -->
+<section class="mb-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-base">
+<div>
+<span class="font-label-md text-label-md text-primary bg-primary-container/20 px-3 py-1 rounded-full mb-base inline-block">Student Dashboard</span>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-1">Alex Rivera</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Level 12 • Quantum Lab Specialization</p>
+</div>
+<div class="flex gap-base">
+<button class="bg-primary-container text-on-primary-container px-gutter py-3 rounded-xl font-label-md flex items-center gap-base shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+                        Start Daily Lab
+                    </button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- My Courses (Large Section) -->
+<div class="md:col-span-8 space-y-gutter">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">My Courses</h2>
+<a class="text-primary font-label-md hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Course Card 1 -->
+<div class="glass-card p-6 rounded-xl shadow-[0_4px_20px_rgba(34,211,238,0.1)] group hover:shadow-lg transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-primary-container/10 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+</div>
+<span class="bg-surface-container-high px-2 py-1 rounded text-label-sm font-label-sm text-on-surface-variant">Active</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold mb-2">Embedded Systems Architecture</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-6">Mastering ARM Cortex-M microcontrollers and RTOS fundamentals.</p>
+<div class="space-y-2">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Progress</span>
+<span>74%</span>
+</div>
+<div class="w-full h-2 bg-primary-container/20 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container" style="width: 74%"></div>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="glass-card p-6 rounded-xl shadow-[0_4px_20px_rgba(34,211,238,0.1)] group hover:shadow-lg transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-tertiary-container/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+</div>
+<span class="bg-surface-container-high px-2 py-1 rounded text-label-sm font-label-sm text-on-surface-variant">80% Complete</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold mb-2">High-Performance Computing</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-6">Optimizing complex algorithms for parallel processing units.</p>
+<div class="space-y-2">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Progress</span>
+<span>80%</span>
+</div>
+<div class="w-full h-2 bg-primary-container/20 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container" style="width: 80%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Lab Projects -->
+<div class="space-y-gutter pt-gutter">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Lab Projects</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative rounded-xl overflow-hidden group aspect-[4/3] shadow-md">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-tech laboratory workstation with a sleek, minimalist design. A robotic arm is precisely positioned over a circuit board, surrounded by multiple glowing screens displaying complex data visualizations and code. The scene is lit by futuristic neon cyan and white lighting, creating a professional, energetic, and precise atmosphere typical of a cutting-edge virtual lab simulation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzkA7Td1QlgccpfQ5bQqgqVeicGryt9096ajwauwtXcY9n92Sa2Hrf98hi9On4ThzGKsAsEqBES6Jx9MxQQvIIA8p73Lzn0P0aLBK07tV7JfLvDAFnt9FBPsqJwAzHrd8az9xFns03BXkJ9JIOGW8hMe7FZ8h3sFD_rjxcOp-YaL7vDuFZ6bwLB83zB4Ziy4fUckFChHd0JQtyZbo92mYKPV2Pi9Zz5tOMi9HmBE_IPDOM0PrRPYVXwedJY_H-WkGaXnDZGUjo7W8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 to-transparent flex flex-col justify-end p-6">
+<span class="text-primary-container font-label-sm mb-1 uppercase tracking-wider">Simulation</span>
+<h4 class="text-white font-headline-md text-body-lg">Signal Processing Unit v2</h4>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-white/70 text-sm" data-icon="schedule">schedule</span>
+<span class="text-white/70 text-label-sm font-label-sm">Updated 2h ago</span>
+</div>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden group aspect-[4/3] shadow-md">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed view of a high-performance computer server room at night. Rows of sleek black server racks are illuminated by pulsating cyan LED lights, casting a rhythmic glow across the dark floor. The atmosphere is one of immense data power and high-tech efficiency, captured in a modern corporate aesthetic with high-key lighting accents and clean, precise lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQzsY5QgGKSAcUV2GA2_e7bvHYwNRj_w1hRbB8vxTgcScwmwzEnmoIqgjLRJb213vZYwKV_cYyOQQr-Jie9w4NlYwBx-P9-4VdG05jdGVFpUDcs3ercfkzw2ZQ_pTqRpys20y7L5p0DhcxCCY6FsQS8mu2TcBjnUbO4z4PjIzX_8Z0QkWtE7epuxO3-USl2dMsDRy-YteB13J4cZqRpZ9nlZtzajjUqBJ6TKScsSb0qdVYIXm9qoRqv5AjWj018tcind1KfLVRppQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 to-transparent flex flex-col justify-end p-6">
+<span class="text-primary-container font-label-sm mb-1 uppercase tracking-wider">Deployment</span>
+<h4 class="text-white font-headline-md text-body-lg">Cloud Infrastructure Stress Test</h4>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-white/70 text-sm" data-icon="schedule">schedule</span>
+<span class="text-white/70 text-label-sm font-label-sm">Updated Yesterday</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar (Upcoming Classes & Stats) -->
+<aside class="md:col-span-4 space-y-gutter">
+<!-- Upcoming Live Classes -->
+<div class="glass-card rounded-xl p-6 shadow-sm border border-glass-border">
+<h3 class="font-headline-md text-body-lg font-bold mb-4 flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary" data-icon="videocam">videocam</span>
+                        Upcoming Live
+                    </h3>
+<div class="space-y-4">
+<!-- Class 1 -->
+<div class="flex gap-4 p-3 rounded-lg hover:bg-surface-variant transition-colors cursor-pointer border-l-4 border-secondary">
+<div class="flex-shrink-0 text-center w-12">
+<div class="text-label-sm font-label-sm text-secondary">OCT</div>
+<div class="font-headline-md text-headline-md leading-none">24</div>
+</div>
+<div>
+<h4 class="text-body-md font-semibold">Quantum Cryptography</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">02:00 PM • Dr. Sarah Chen</p>
+</div>
+</div>
+<!-- Class 2 -->
+<div class="flex gap-4 p-3 rounded-lg hover:bg-surface-variant transition-colors cursor-pointer border-l-4 border-outline-variant">
+<div class="flex-shrink-0 text-center w-12">
+<div class="text-label-sm font-label-sm text-on-surface-variant">OCT</div>
+<div class="font-headline-md text-headline-md leading-none text-on-surface-variant">26</div>
+</div>
+<div>
+<h4 class="text-body-md font-semibold text-on-surface-variant">Kernel Development Workshop</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">10:00 AM • Prof. Marcus Thorne</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border-2 border-primary-container text-primary font-label-md rounded-lg hover:bg-primary-container/10 transition-colors">
+                        View Calendar
+                    </button>
+</div>
+<!-- Mentor Session Mini-Card -->
+<div class="bg-inverse-surface rounded-xl p-6 text-white shadow-xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline-md text-body-lg mb-2">Need Help?</h3>
+<p class="text-white/70 text-sm mb-4">Book a 1-on-1 session with our Virtual Mentors or Lab Leads.</p>
+<button class="bg-secondary-container text-on-secondary-fixed font-label-md px-gutter py-2 rounded-lg active:scale-95 transition-transform">
+                            Schedule Session
+                        </button>
+</div>
+<!-- Abstract Background Shape -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Learning Stats -->
+<div class="glass-card rounded-xl p-6 border border-glass-border">
+<h3 class="font-headline-md text-body-lg font-bold mb-4 flex items-center gap-base">
+<span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
+                        Lab Stats
+                    </h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-surface-variant">
+<span class="text-body-md text-on-surface-variant">Lab Hours</span>
+<span class="font-bold">124.5h</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-variant">
+<span class="text-body-md text-on-surface-variant">Certificates</span>
+<span class="font-bold">03</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-body-md text-on-surface-variant">Skill Points</span>
+<span class="font-bold text-primary">8,420 XP</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 backdrop-blur-lg bg-glass-fill border-t border-glass-border shadow-[0_-4px_20px_rgba(34,211,238,0.1)] h-16">
+<div class="flex justify-around items-center h-16 w-full px-2">
+<a class="flex flex-col items-center justify-center bg-primary-container/30 text-on-primary-container rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-label-sm text-label-sm">Labs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+<span class="font-label-sm text-label-sm">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-label-sm text-label-sm">Code</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-sm text-label-sm">Stats</span>
+</a>
+</div>
+</nav>
+</body></html>

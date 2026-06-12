@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#006877",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary": "#835400",
+                    "primary-fixed-dim": "#2fd9f4",
+                    "outline": "#6c797d",
+                    "surface-container": "#eaedff",
+                    "secondary-container": "#fd761a",
+                    "surface-tint": "#006877",
+                    "surface-bright": "#faf8ff",
+                    "on-surface": "#131b2e",
+                    "surface-container-high": "#e2e7ff",
+                    "glass-border": "rgba(255, 255, 255, 0.4)",
+                    "tertiary-container": "#ffb13b",
+                    "surface-base": "#FFFFFF",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f2f3ff",
+                    "on-background": "#131b2e",
+                    "glass-fill": "rgba(255, 255, 255, 0.7)",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#bbc9cd",
+                    "tertiary-fixed-dim": "#ffb957",
+                    "surface-variant": "#dae2fd",
+                    "secondary-fixed": "#ffdbca",
+                    "inverse-surface": "#283044",
+                    "inverse-primary": "#2fd9f4",
+                    "background": "#faf8ff",
+                    "on-secondary-fixed": "#341100",
+                    "on-secondary-fixed-variant": "#783200",
+                    "on-primary-fixed-variant": "#004e5a",
+                    "primary-container": "#22d3ee",
+                    "surface-muted": "#F1F5F9",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#643f00",
+                    "secondary-fixed-dim": "#ffb690",
+                    "on-surface-variant": "#3c494c",
+                    "tertiary-fixed": "#ffddb5",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d2d9f4",
+                    "on-primary-container": "#005763",
+                    "surface-container-highest": "#dae2fd",
+                    "on-secondary-container": "#5c2400",
+                    "on-tertiary-fixed": "#2a1800",
+                    "on-primary-fixed": "#001f25",
+                    "primary-fixed": "#a2eeff",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#6e4600",
+                    "inverse-on-surface": "#eef0ff",
+                    "surface": "#faf8ff",
+                    "secondary": "#9d4300"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Geist"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "label-md": ["Geist"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .ignition-gradient {
+            background: linear-gradient(135deg, #fd761a 0%, #9d4300 100%);
+        }
+        .hud-shadow {
+            box-shadow: 0 4px 20px rgba(34, 211, 238, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top Navigation Bar -->
+<nav class="bg-glass-fill backdrop-blur-md w-full h-16 sticky top-0 z-50 border-b border-glass-border shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-md text-headline-md font-bold text-primary">DrilLab</span>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Courses</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Simulations</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-gutter flex-1 max-w-md mx-gutter">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg py-2 pl-10 pr-4 focus:ring-2 focus:ring-primary text-body-md" placeholder="Search lab modules..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="hidden md:flex items-center gap-base">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md hover:opacity-90 active:scale-95 transition-all">Upgrade</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional studio headshot of a young researcher wearing a minimalist gray tech-fabric shirt. The background is a clean, out-of-focus laboratory environment with soft cyan lighting accents. The lighting is crisp and flattering, emphasizing a focused and intelligent expression. High-end portrait photography style with natural skin textures and sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIwILII_C6DWqZcGjd3tv0_ZbszmQoPw-74pYVKqdvANF-YTAd7pN8BoAF94f-_dBtPBpdHQ5PrOB6S4a3Hg4QcEAG0uMw7bZP6PcTUsAebGCEcUPyqSSy_J5UbZ4ycu4HB76cVy0IZwCUDCbnGfxint_bNdb66H56YrX9Tc7Q861M9RBfFva0IQKWuPgFn1SmsTBdYtzFS--XOid9JLLxxuWT4RKrP3UJyYRS4LRQqBRjEqta4qmN3miMBWjEwWDydbcMA0yUZoA"/>
+</div>
+</div>
+</div>
+</nav>
+<div class="flex max-w-container-max mx-auto px-margin-desktop py-gutter gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="hidden md:flex flex-col w-64 shrink-0 gap-gutter">
+<div class="glass-card p-gutter rounded-xl hud-shadow">
+<h3 class="font-headline-md text-headline-md text-primary mb-gutter">Filters</h3>
+<div class="flex flex-col gap-gutter">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">CATEGORY</p>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 text-body-md text-on-surface cursor-pointer group">
+<input class="rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">Software</span>
+</label>
+<label class="flex items-center gap-2 text-body-md text-on-surface cursor-pointer group">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors font-semibold">Hardware</span>
+</label>
+<label class="flex items-center gap-2 text-body-md text-on-surface cursor-pointer group">
+<input class="rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">Robotics</span>
+</label>
+<label class="flex items-center gap-2 text-body-md text-on-surface cursor-pointer group">
+<input class="rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">Quantum</span>
+</label>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-gutter">
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">DIFFICULTY</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-primary-container font-label-sm">Beginner</span>
+<span class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm">Intermediate</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-primary-container font-label-sm">Advanced</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-gutter">
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">ENROLLMENT STATUS</p>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 text-body-md text-on-surface cursor-pointer group">
+<input class="text-primary focus:ring-primary" name="status" type="radio"/>
+<span class="group-hover:text-primary">Not Started</span>
+</label>
+<label class="flex items-center gap-2 text-body-md text-on-surface cursor-pointer group">
+<input class="text-primary focus:ring-primary" name="status" type="radio"/>
+<span class="group-hover:text-primary">In Progress</span>
+</label>
+<label class="flex items-center gap-2 text-body-md text-on-surface cursor-pointer group">
+<input class="text-primary focus:ring-primary" name="status" type="radio"/>
+<span class="group-hover:text-primary">Completed</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Promotion Card -->
+<div class="ignition-gradient p-gutter rounded-xl text-on-primary shadow-lg">
+<span class="material-symbols-outlined text-4xl mb-base">workspace_premium</span>
+<h4 class="font-headline-md text-headline-md mb-2">Get Lab Pass</h4>
+<p class="text-body-md mb-gutter opacity-90">Unlock unlimited simulation time and expert hardware tutorials.</p>
+<button class="w-full bg-surface-container-lowest text-secondary py-3 rounded-lg font-bold hover:bg-opacity-90 active:scale-95 transition-all">Explore Pro</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1">
+<header class="mb-gutter flex justify-between items-end">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-background mb-base">Course Directory</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Master modern engineering through immersive virtual simulations and hands-on lab projects.</p>
+</div>
+<div class="flex gap-2 bg-surface-container-low p-1 rounded-lg">
+<button class="p-2 bg-white rounded shadow-sm text-primary">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</header>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Course Card 1 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col group hud-shadow border border-glass-border">
+<div class="h-48 relative overflow-hidden">
+<img alt="Robotics course" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed close-up of a sophisticated robotic arm assembling a circuit board in a high-tech manufacturing facility. The scene is bathed in a futuristic cyan and orange lighting scheme, reflecting off polished metallic surfaces. Sharp focus, cinematic depth of field, and a clean, laboratory-grade aesthetic that feels professional and innovative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcuca8laXrxJ3SmNHH3hAEN4lOC2EJZJuoTuxPDbjQAakK53N4rILFbzr3CjRjRRgay_bpAtkp5UWIYg924aC3Ll-iGdRonmuSjJw0J7DJFLeB22NoZk-eiII6ZjHqICiKMjiDGNYyq6B9mDxY-LVIgZDctFC734EvOe7FBUEvzR5nWcIoMi88Tbugv5EiiR5uupTNWCpeu5dA3waxShdpEKvjrTTPSJ_z4uilHvjxf620GisQM-f2-Q3cTeqgeamLt9ms4d0a2ZQ"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-3 py-1 rounded-full bg-glass-fill backdrop-blur-md border border-glass-border text-on-background font-label-sm">Hardware</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Introduction to Robotics</h3>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">bookmark</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-gutter line-clamp-2">Learn the fundamentals of kinematics, control systems, and sensor integration in industrial environments.</p>
+<div class="mt-auto">
+<div class="flex items-center gap-base mb-gutter">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary-container"></div>
+</div>
+<span class="text-label-sm text-on-surface-variant">+1.2k students</span>
+</div>
+<div class="flex items-center justify-between gap-gutter">
+<div class="flex flex-col">
+<span class="text-label-sm text-on-surface-variant">Time</span>
+<span class="font-bold text-on-surface">12h 45m</span>
+</div>
+<button class="ignition-gradient text-on-primary px-gutter py-3 rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all">Start Learning</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col group hud-shadow border border-glass-border">
+<div class="h-48 relative overflow-hidden">
+<img alt="AI course" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A mesmerizing visualization of a neural network with glowing orange nodes and cyan connecting fibers against a deep slate background. The image has a frosted glass overlay effect, looking like a high-tech holographic interface. The mood is energetic and advanced, with vibrant light trails and a sense of infinite digital complexity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpTTFXHyYGs0WTPc_5R8bXt9fCHFkl51fTJIlaNOJ93Bwli3_e7mLNoesdZh3RM7O-n4b3ldgMgqa3bzwUU8FCN67TqqWRJigxxYCYY86T_E30W7HDBu6yNz6EmWQR27BwPayF4LJkkuGsEx6dxGRLbipN3FnHQPNkJ27KVfFCL1xqUOjiUJEzXjb9BSLdX7UW0njScCwIShXZrQLDkyMieRdS1Tglvbg_Run0Ln5_2_o92AfscfPelN_IBr56mN46R9GjFkjL3uE"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-3 py-1 rounded-full bg-glass-fill backdrop-blur-md border border-glass-border text-on-background font-label-sm">Software</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Python for AI</h3>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">bookmark</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-gutter line-clamp-2">Master data processing, machine learning models, and automation using the industry's favorite language.</p>
+<div class="mt-auto">
+<div class="flex flex-col gap-2 mb-gutter">
+<div class="flex justify-between text-label-sm">
+<span class="text-on-surface-variant">Progress</span>
+<span class="text-primary font-bold">45%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container" style="width: 45%"></div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all">Resume Course</button>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col group hud-shadow border border-glass-border">
+<div class="h-48 relative overflow-hidden">
+<img alt="Quantum course" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cinematic 3D render of a quantum computing core, featuring suspended crystalline structures and floating particles of light in a vacuum chamber. The palette is dominated by deep blues and vibrant cyans, with soft white glowing accents. High-tech laboratory atmosphere, clean, precise, and visually stunning digital art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyw_7mHikpQZhvmfyUmU103bahI2gGommkJo0whZc6VnwyAdknIxWbvuZ3Hx5F-_4g3dMUC0UYGSdmQA7SEa61FqFm791OCK7RCMApsabHjqURdIo994sdB5EVYlPdR5_1zSRnBLVOjqUKlKl2HFx_kSFZqN9prTrFKdflzA-26UGjqM5yqJaPALi4xvfjCk2392om-oTNl0UXwHppv_ToECewd8edThJiKDPyGb3fFT9u0HbGZ4EvXBNi0fO7D3w3O8RL01obYw8"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-3 py-1 rounded-full bg-glass-fill backdrop-blur-md border border-glass-border text-on-background font-label-sm">Quantum</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Quantum Simulation</h3>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">bookmark</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-gutter line-clamp-2">Explore the frontiers of quantum mechanics through high-fidelity virtual lab simulations.</p>
+<div class="mt-auto">
+<div class="flex items-center gap-base mb-gutter">
+<span class="material-symbols-outlined text-tertiary">star</span>
+<span class="text-label-sm text-on-surface-variant font-bold">4.9 (428 reviews)</span>
+</div>
+<div class="flex items-center justify-between gap-gutter">
+<div class="flex flex-col">
+<span class="text-label-sm text-on-surface-variant">Modules</span>
+<span class="font-bold text-on-surface">24 Lessons</span>
+</div>
+<button class="ignition-gradient text-on-primary px-gutter py-3 rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all">Start Learning</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Course Card 4 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col group hud-shadow border border-glass-border">
+<div class="h-48 relative overflow-hidden">
+<img alt="Circuitry course" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An intricate macro photograph of a modern motherboard with glowing copper traces and minimalist black components. Soft orange light emanates from beneath the surface, creating a sense of active processing. High-contrast, tech-focused aesthetic with clinical precision and sharp geometric lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAofwoR5G0lFU5h4m_fJL3e_M-24EsyJWDsUypCFx51Q5WZxjoG7nW1gZm3UPvkUNUyxnaGpaerL_Pqs2BNc-akH6AuxYgAQ22smRWwhqrwAjg0DnMC8I7dHTIj7cJGk2VdHnWWOyVKWm-ipSJrYqC5_adcGsXnEXr0BMUwqSrPwcQ8mrr7PzvowXcqYJmK5eXWi5vSpfXx5AJjQJc0fiwLVfy9dfukFNIUKbU-1gBssP9wAI7tkuFi4Pu32-rd4yIQdwM6SCwaK1k"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-3 py-1 rounded-full bg-glass-fill backdrop-blur-md border border-glass-border text-on-background font-label-sm">Hardware</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Advanced PCB Design</h3>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">bookmark</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-gutter line-clamp-2">Design, simulate, and verify complex multilayer printed circuit boards for high-frequency applications.</p>
+<div class="mt-auto">
+<div class="flex items-center gap-base mb-gutter">
+<span class="material-symbols-outlined text-primary">bar_chart</span>
+<span class="text-label-sm text-on-surface-variant">Expert Level</span>
+</div>
+<div class="flex items-center justify-between gap-gutter">
+<div class="flex flex-col">
+<span class="text-label-sm text-on-surface-variant">Access</span>
+<span class="font-bold text-on-surface">Lifetime</span>
+</div>
+<button class="ignition-gradient text-on-primary px-gutter py-3 rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all">Start Learning</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Course Card 5 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col group hud-shadow border border-glass-border">
+<div class="h-48 relative overflow-hidden">
+<img alt="Cybersecurity course" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-contrast digital art piece representing cybersecurity with abstract locks and data streams flowing through a grid. The lighting is dominated by deep blacks and vibrant neon cyans, with orange security warning elements. Sharp, minimalist, and technologically advanced mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBxzfSHUdeAgiLYgbJQwIa8aCnngYHV-1fJqg-yk6DlrewQbS07J9RKnp0IE_g59B-wYX8jHs1PKXS3gBZEM6_Io00rd53HNEH5X-eouvUPOCE3SE_GCudJfFqBC7TZnCyfsuxrEr2IjnCErhwvoavh9NIE5Bjm1Jme5U5aR9IkuEsBLjkEF3TTCHzr6RErkoAQ1PrRlKXtIlJiQG5QBB9GkWgQOUPSWB1ZWORUd28nFUoXbpM6L37L-roS3nhSCRU2O98ekHyAps"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-3 py-1 rounded-full bg-glass-fill backdrop-blur-md border border-glass-border text-on-background font-label-sm">Software</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Network Forensics</h3>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">bookmark</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-gutter line-clamp-2">Trace complex security breaches and analyze malicious traffic patterns in simulated enterprise networks.</p>
+<div class="mt-auto">
+<div class="flex items-center gap-base mb-gutter">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="text-label-sm text-on-surface-variant">Certified Path</span>
+</div>
+<div class="flex items-center justify-between gap-gutter">
+<div class="flex flex-col">
+<span class="text-label-sm text-on-surface-variant">Duration</span>
+<span class="font-bold text-on-surface">18h 20m</span>
+</div>
+<button class="ignition-gradient text-on-primary px-gutter py-3 rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all">Start Learning</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Style Lab Card -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col group hud-shadow border border-glass-border bg-primary-container/10">
+<div class="p-8 h-full flex flex-col justify-center items-center text-center">
+<div class="w-16 h-16 rounded-2xl bg-primary text-on-primary flex items-center justify-center mb-base shadow-lg">
+<span class="material-symbols-outlined text-4xl">science</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-2">Request a Lab</h3>
+<p class="text-body-md text-on-surface-variant mb-gutter">Can't find the specific hardware simulation you need? Our engineers can build it.</p>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all">Submit Request</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-gutter flex justify-center items-center gap-base">
+<button class="p-2 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors">2</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors">12</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-gutter border-t border-outline-variant mt-gutter">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-md text-headline-md text-primary font-bold">DrilLab</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2">© 2024 DrilLab Virtual Systems. All rights reserved.</p>
+</div>
+<div class="flex gap-gutter">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">API Docs</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<div class="flex gap-base">
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm">public</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

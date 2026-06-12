@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=Geist:wght@500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .ignition-gradient {
+            background: linear-gradient(135deg, #fd761a 0%, #9d4300 100%);
+        }
+        .cyan-gradient {
+            background: linear-gradient(135deg, #22d3ee 0%, #006877 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#006877",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#835400",
+                        "primary-fixed-dim": "#2fd9f4",
+                        "outline": "#6c797d",
+                        "surface-container": "#eaedff",
+                        "secondary-container": "#fd761a",
+                        "surface-tint": "#006877",
+                        "surface-bright": "#faf8ff",
+                        "on-surface": "#131b2e",
+                        "surface-container-high": "#e2e7ff",
+                        "glass-border": "rgba(255, 255, 255, 0.4)",
+                        "tertiary-container": "#ffb13b",
+                        "surface-base": "#FFFFFF",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f2f3ff",
+                        "on-background": "#131b2e",
+                        "glass-fill": "rgba(255, 255, 255, 0.7)",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#bbc9cd",
+                        "tertiary-fixed-dim": "#ffb957",
+                        "surface-variant": "#dae2fd",
+                        "secondary-fixed": "#ffdbca",
+                        "inverse-surface": "#283044",
+                        "inverse-primary": "#2fd9f4",
+                        "background": "#faf8ff",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary-fixed-variant": "#783200",
+                        "on-primary-fixed-variant": "#004e5a",
+                        "primary-container": "#22d3ee",
+                        "surface-muted": "#F1F5F9",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#643f00",
+                        "secondary-fixed-dim": "#ffb690",
+                        "on-surface-variant": "#3c494c",
+                        "tertiary-fixed": "#ffddb5",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d2d9f4",
+                        "on-primary-container": "#005763",
+                        "surface-container-highest": "#dae2fd",
+                        "on-secondary-container": "#5c2400",
+                        "on-tertiary-fixed": "#2a1800",
+                        "on-primary-fixed": "#001f25",
+                        "primary-fixed": "#a2eeff",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#6e4600",
+                        "inverse-on-surface": "#eef0ff",
+                        "surface": "#faf8ff",
+                        "secondary": "#9d4300"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-md": ["Geist"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-glass-fill backdrop-blur-md w-full h-16 sticky top-0 z-50 border-b border-glass-border shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-md text-headline-md font-bold text-primary">DrilLab</span>
+<div class="hidden md:flex items-center gap-gutter ml-gutter">
+<a class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Courses</a>
+<a class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Simulations</a>
+<a class="text-on-surface-variant font-medium font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="hidden lg:flex items-center gap-base px-gutter py-2 bg-primary-container text-on-primary-container font-label-md text-label-md rounded-lg active:scale-95 transition-transform">
+                    Upgrade
+                </button>
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="settings">settings</span>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional headshot of a young scientist wearing glasses and a clean laboratory coat. The lighting is bright and modern, with a soft blue tint in the background to match a high-tech corporate lab aesthetic. The individual has a friendly but focused expression, representing the core user of an advanced e-learning platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNOZBlgA58rugr-7ubnvPf6WFOcfJNCrMHSAg0Uhxkfpue3mBsJNO-ES0Qc0Pv_9svUt99zbxp7HrMnV3LYT73mhiBKBDW2BoBaKyi83hlsoN660CnYEMxR9pL1qQ4Bxv9_HAcZoB9eC-qEBWVAfK7BD9vkGkEDhkP0r6-TyUi4vhsHyi1ysgzrNSKi_abRqKS7tz99u8D5QqF5z-r9wUsnXpwbEPpeiTPrpmtKA3hZeAKxrnxWGiraT1BxPd12WdnuV4zUajdjvM"/>
+</div>
+</div>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center pt-16">
+<div class="absolute inset-0 z-0">
+<img alt="Hero background lab" class="w-full h-full object-cover opacity-15" data-alt="A wide-angle shot of a state-of-the-art robotics research laboratory with multiple metallic robotic arms visible in the background. The scene is bathed in a cool cyan ambient light with sharp orange highlights on control panels. The environment looks pristine, modern, and highly technological, emphasizing a professional engineering workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3VyDwWjYEmWLq36v6CHUzQG1_tOykGWD7pK9v_qHx67yS5zmFDhgo6SpkNYIIAD1LKmTLEepl6t8sECDZXYEv3jeqa0ahDTZ95KMu8e_dBlIJAe_6Ns9AgmXq4mWth65RYvB-k2cKfzpTrjqm0ntCrURyqom9tw4_b3bryqoqQDNEeI7vkSJzwRI17YJRCFBccZCk8qYFaZs15Q2PSpgEww9dtRKnOlNcO9ewjCmIob--7DorqPakHm1wOFdhCuUIjlkGqV9RB5E"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max px-margin-desktop text-center">
+<div class="inline-flex items-center gap-base px-4 py-1.5 rounded-full bg-surface-container-high border border-outline-variant mb-gutter">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Live Enrollment Now Open</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-gutter max-w-4xl mx-auto">
+                Master Deep Sea <span class="text-primary">Engineering</span> in Virtual Space
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                Bridge the gap between theory and execution. DrilLab provides high-fidelity simulations for robotics training, industrial coding, and complex drilling operations.
+            </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-gutter">
+<button class="ignition-gradient text-on-primary px-8 py-4 rounded-xl font-headline-md text-headline-md shadow-lg active:scale-95 transition-transform">
+                    Open Virtual Lab
+                </button>
+<button class="bg-glass-fill border-2 border-primary text-primary px-8 py-4 rounded-xl font-headline-md text-headline-md backdrop-blur-md active:scale-95 transition-transform">
+                    Explore Courses
+                </button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Showcase -->
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[600px]">
+<!-- Live Mentorship -->
+<div class="md:col-span-8 glass-card rounded-3xl p-gutter flex flex-col relative overflow-hidden group">
+<div class="absolute inset-0 z-0">
+<img alt="Live Mentorship" class="w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700" data-alt="A focused group of diverse engineers working together on a complex digital interface. The lighting is high-key and professional, with cyan reflections on glass surfaces. The mood is collaborative and intellectually stimulating, capturing a live mentorship session in a modern corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWxxrRxoG1LTXU8rI-ZqKnJ8ZXlOc3jPkDhe9K-ahIifeee6Wezr1hvTXIR0Fkm5vobPBdOBS0iJ95Zuf0s2BnD4CrgQA3UGHDBidWvjPAuOULe47LQl3tOY_q2eK3HHdu1a7OlOmse55BB3qbmVP2xcln0yPBv-83DQtoyDa1ojcBp4E4VGaNc4PkRR8xy-nOgmGaZK2sSQY5N6Y5KCrFAUjmJIYYZDG7yAn9VndjS0fKymM_eSIGgmpk53E2mRAZ9FGM9ZvZDgY"/>
+</div>
+<div class="relative z-10 mt-auto">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-widest">Global Network</span>
+<h3 class="font-display-lg text-headline-lg text-on-surface mt-2">Live Mentorship</h3>
+<p class="font-body-md text-on-surface-variant max-w-md mt-base">Connect with industry leaders in real-time. Our mentorship programs bridge the gap between classroom theory and real-world drilling challenges.</p>
+</div>
+</div>
+<!-- Hands-on Coding -->
+<div class="md:col-span-4 glass-card rounded-3xl p-gutter flex flex-col bg-primary text-on-primary border-none shadow-xl">
+<span class="material-symbols-outlined text-4xl mb-gutter" data-icon="terminal">terminal</span>
+<h3 class="font-headline-lg mb-base">Hands-on Coding</h3>
+<p class="font-body-md text-primary-fixed mb-gutter">Develop industrial control systems using our proprietary SDK. Real-time feedback on every line of code.</p>
+<div class="mt-auto pt-gutter border-t border-white/20">
+<div class="flex items-center gap-base">
+<div class="w-12 h-2 bg-white/20 rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-secondary-container"></div>
+</div>
+<span class="font-label-sm text-label-sm">System Ready</span>
+</div>
+</div>
+</div>
+<!-- Robotics Training -->
+<div class="md:col-span-12 glass-card rounded-3xl p-gutter flex flex-col md:flex-row gap-gutter overflow-hidden relative">
+<div class="md:w-1/2 flex flex-col justify-center">
+<span class="font-label-md text-label-md text-secondary font-bold uppercase tracking-widest">Specialized Module</span>
+<h3 class="font-display-lg text-headline-lg text-on-surface mt-2">Robotics Training</h3>
+<p class="font-body-md text-on-surface-variant mt-base mb-gutter">Operate heavy-duty subsea ROVs through precision haptic simulations. Experience zero-latency control in extreme environments.</p>
+<div class="flex gap-base">
+<span class="px-4 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Hardware-Accellerated</span>
+<span class="px-4 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">VR Ready</span>
+</div>
+</div>
+<div class="md:w-1/2 rounded-2xl overflow-hidden shadow-inner bg-surface-dim">
+<img alt="Robotics Arm Detail" class="w-full h-full object-cover" data-alt="A close-up macro shot of a sophisticated robotic hand with carbon fiber components and exposed orange wiring. The background is a blurred high-tech lab with cyan glowing lines. The focus is sharp on the mechanical joints, illustrating precision engineering and advanced robotics training technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYvJbqaQ2clnKld0-UOGtVVZxsvbVyjjYbBuEBGFvm1Z6mHOiz2BWGaZ9pBafg49m2eiv8XPfecsAnik2ehQRNj2bYAOu7pZPyGSN9jzWEaOzHH2Vyi8soDxL3PhC3kD6zg_2tUMP1fOEJYX7CLB-__7bbMFB3oLGC6fL2Kwk-w0SsTV3jhUF0m0HIYEtabA9I_hUlcTO9znkzoyB8U6XhW0u2GPpnuxIpPQJKbWUEhhCbcA3ep1WoOWFiEJIEl7eZ_5IVgoAQgZo"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lab Cockpit Preview -->
+<section class="py-20 bg-background">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-headline-lg mb-base">The Virtual Workspace</h2>
+<p class="font-body-md text-on-surface-variant">Our "Cockpit" model keeps every tool within reach.</p>
+</div>
+<div class="relative bg-inverse-surface rounded-[40px] p-4 shadow-2xl border-[12px] border-surface-dim overflow-hidden">
+<div class="flex h-[500px] gap-2">
+<!-- Sidebar Mockup -->
+<div class="w-16 flex flex-col gap-4 bg-surface-variant/10 p-2 rounded-2xl">
+<div class="w-full aspect-square bg-primary rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="science">science</span>
+</div>
+<div class="w-full aspect-square bg-white/5 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white/50" data-icon="construction">construction</span>
+</div>
+<div class="w-full aspect-square bg-white/5 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white/50" data-icon="menu_book">menu_book</span>
+</div>
+</div>
+<!-- Main Content Mockup -->
+<div class="flex-1 bg-surface-container-lowest/5 rounded-2xl p-gutter relative overflow-hidden">
+<div class="flex justify-between items-start mb-gutter">
+<div>
+<h4 class="font-headline-md text-white">Virtual Lab 01</h4>
+<p class="text-white/60 text-sm">Deep Sea Drilling Operational Simulation</p>
+</div>
+<div class="flex items-center gap-base">
+<div class="h-10 w-32 bg-secondary-container rounded-lg flex items-center justify-center font-label-md text-white">Live Data</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-gutter">
+<div class="aspect-video glass-card rounded-xl border-white/10 p-4">
+<div class="h-2 w-1/2 bg-white/20 rounded mb-2"></div>
+<div class="h-1 bg-primary-container w-3/4 rounded"></div>
+</div>
+<div class="aspect-video glass-card rounded-xl border-white/10 p-4">
+<div class="h-2 w-1/2 bg-white/20 rounded mb-2"></div>
+<div class="h-1 bg-secondary-container w-1/2 rounded"></div>
+</div>
+<div class="aspect-video glass-card rounded-xl border-white/10 p-4">
+<div class="h-2 w-1/2 bg-white/20 rounded mb-2"></div>
+<div class="h-1 bg-white/40 w-full rounded"></div>
+</div>
+</div>
+<!-- HUD Graphic Elements -->
+<div class="absolute bottom- gutter right-gutter w-48 h-48 opacity-20">
+<svg class="w-full h-full text-primary-container animate-spin-slow" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="10 5" stroke-width="0.5"></circle>
+<circle cx="50" cy="50" fill="none" r="35" stroke="currentColor" stroke-dasharray="1 10" stroke-width="2"></circle>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-gutter border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col gap-base text-center md:text-left">
+<span class="font-headline-md text-headline-md text-primary font-bold">DrilLab</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-xs">© 2024 DrilLab Virtual Systems. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">API Docs</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<div class="flex gap-gutter">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80" data-icon="language">language</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80" data-icon="forum">forum</span>
+</div>
+</div>
+</footer>
+</body></html>

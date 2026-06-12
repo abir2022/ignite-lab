@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .ignition-gradient {
+            background: linear-gradient(135deg, #fd761a 0%, #9d4300 100%);
+        }
+        .cyan-gradient {
+            background: linear-gradient(90deg, #22d3ee 0%, #006877 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#006877",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#835400",
+                        "primary-fixed-dim": "#2fd9f4",
+                        "outline": "#6c797d",
+                        "surface-container": "#eaedff",
+                        "secondary-container": "#fd761a",
+                        "surface-tint": "#006877",
+                        "surface-bright": "#faf8ff",
+                        "on-surface": "#131b2e",
+                        "surface-container-high": "#e2e7ff",
+                        "glass-border": "rgba(255, 255, 255, 0.4)",
+                        "tertiary-container": "#ffb13b",
+                        "surface-base": "#FFFFFF",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f2f3ff",
+                        "on-background": "#131b2e",
+                        "glass-fill": "rgba(255, 255, 255, 0.7)",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#bbc9cd",
+                        "tertiary-fixed-dim": "#ffb957",
+                        "surface-variant": "#dae2fd",
+                        "secondary-fixed": "#ffdbca",
+                        "inverse-surface": "#283044",
+                        "inverse-primary": "#2fd9f4",
+                        "background": "#faf8ff",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary-fixed-variant": "#783200",
+                        "on-primary-fixed-variant": "#004e5a",
+                        "primary-container": "#22d3ee",
+                        "surface-muted": "#F1F5F9",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#643f00",
+                        "secondary-fixed-dim": "#ffb690",
+                        "on-surface-variant": "#3c494c",
+                        "tertiary-fixed": "#ffddb5",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d2d9f4",
+                        "on-primary-container": "#005763",
+                        "surface-container-highest": "#dae2fd",
+                        "on-secondary-container": "#5c2400",
+                        "on-tertiary-fixed": "#2a1800",
+                        "on-primary-fixed": "#001f25",
+                        "primary-fixed": "#a2eeff",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#6e4600",
+                        "inverse-on-surface": "#eef0ff",
+                        "surface": "#faf8ff",
+                        "secondary": "#9d4300"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-md": ["Geist"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar -->
+<header class="bg-glass-fill backdrop-blur-md w-full h-16 sticky top-0 z-50 border-b border-glass-border shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-md text-headline-md font-bold text-primary">DrilLab</span>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Dashboard</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Courses</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Simulations</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-base">
+<button class="bg-primary text-on-primary px-gutter py-2 rounded-lg font-label-md text-label-md active:scale-95 transition-transform">Upgrade</button>
+<button class="text-on-surface-variant p-2 hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant p-2 hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20 ml-2">
+<img alt="User profile photo" data-alt="A professional headshot of a student in a bright, modern educational setting. The lighting is soft and high-key, highlighting a friendly and focused expression. The background is slightly blurred, showing hints of a high-tech lab with glowing cyan accents and frosted glass textures, maintaining the brand's energetic and precise aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh2x_O-LQ4_kZVLH6Gxy3Rp-RONVcI3jzdNoERFg5H7TQ7w0AtCk_1kbBqqYVAJAuAnpVzUV-YgHTTpgkJALqCe6FErkP85upmFjlxwQYehIhlctLVQ0QaUrSuNM5CrX3i7NkgXoDIjGUCRr1nNtgwG4SbepwJXZhCSWFCFyjK37HeXDkupZMgH78fcYl23c0ZkRHJgii0kBx9Tjiy_wIfLMfy8taEn-O6jTvjj2yi2KSiLljsvn-Qb_Xdee_zWWnEhFBNCf3owaQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area: Video & Sidebar -->
+<main class="flex-grow flex w-full max-w-container-max mx-auto p-gutter gap-gutter">
+<!-- Left Column: Video and Session Details -->
+<div class="flex-grow flex flex-col gap-gutter max-w-[calc(100%-380px)]">
+<!-- Video Player Container -->
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-inverse-surface group">
+<img alt="Live stream content" class="w-full h-full object-cover opacity-90" data-alt="A cinematic view of a high-tech virtual classroom interface displayed on a large screen. The instructor, Dr. Elena Vance, is visible in a professional studio setting with holographic neural network diagrams floating beside her. The lighting is crisp and cool-toned, with vibrant cyan and orange data visualizations glowing in the background. The atmosphere is academic yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ipPRcc0YmGkM-Q2pRk_c5auPZRRkoLJljCA0YPpBlDVNyB-sCLKb8h-LzFgtkUk-AhhRDndDDcGqGoZ1UeL5u12--BN2gk_l-H_aAIXr4zJQfhbeSUbfHedVLOAJ-QYdjjSDjrIcsK4v1avgSkEm3ijePuGmmHZ3b2mflLmQKekHxpDjhW9PFudW5B-iDKREOfn7QzMH4sUdBK6ZGd3I3qyy6NMquyDYHTMSmylRetWA8HrC_qABTgaAwkb_8lMhCf8Tm_or4k8"/>
+<!-- Video Controls Overlay (Simulated) -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-gutter opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="flex items-center justify-between text-white">
+<div class="flex items-center gap-gutter">
+<span class="material-symbols-outlined cursor-pointer">pause</span>
+<span class="material-symbols-outlined cursor-pointer">volume_up</span>
+<span class="font-label-md text-label-md">01:24:55 / 02:00:00</span>
+</div>
+<div class="flex items-center gap-gutter">
+<span class="bg-red-600 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest">Live</span>
+<span class="material-symbols-outlined cursor-pointer">settings</span>
+<span class="material-symbols-outlined cursor-pointer">fullscreen</span>
+</div>
+</div>
+</div>
+<!-- Live Indicator -->
+<div class="absolute top-gutter right-gutter flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+<span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+<span class="text-white font-label-md text-label-md">842 Watching</span>
+</div>
+</div>
+<!-- Session Details -->
+<div class="glass-card p-gutter rounded-xl flex justify-between items-start">
+<div class="flex flex-col gap-2">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Architecture of Neural Networks</h1>
+<div class="flex items-center gap-base">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img alt="Dr. Elena Vance" data-alt="A detailed portrait of Dr. Elena Vance, a middle-aged academic with a sharp, intelligent gaze. She is set against a clean, minimal office background with high-tech elements. The lighting is soft and professional, emphasizing her role as an expert. The overall color palette is a sophisticated mix of neutral tones and cyan brand accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe4vtPTpZ7vd9qbjuYzIFRJwNWcDbXqbpHIU-4bcdEye4an1Vxkg0rWXqIER8H-iQUvxfuHWj4bug1yzoKoK9swS2uEYfcLe7_pq2AyJ0OXxOKtnfS8raMlP121XYEDHvpHOjFp_GHYmafZZa3btxP8MqmYUv-_k0i-C0mGxiLQv_bHIt0UreyyhIGOuR-l2JCcYgY4ZSjkAIdMO-9eEuyysrNHY7sOp8T-U4t-fh_UpI5Csvn3k0oOui-MJp5Cg2DM6U5BFHTvAA"/>
+</div>
+<span class="font-body-md text-body-md font-semibold text-primary">Dr. Elena Vance</span>
+<span class="text-outline mx-2">•</span>
+<span class="font-label-md text-label-md bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full">Intermediate</span>
+<span class="font-label-md text-label-md bg-primary/10 text-primary px-3 py-1 rounded-full">Module 4 of 12</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">
+                        Deep dive into backpropagation, activation functions, and the mathematical foundations of multi-layered perceptrons. Today we focus on gradient descent optimization.
+                    </p>
+</div>
+<button class="ignition-gradient text-white px-gutter py-4 rounded-xl flex items-center gap-base font-bold text-label-md shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">rocket_launch</span>
+                    Launch Lab
+                </button>
+</div>
+</div>
+<!-- Right Column: Sidebar -->
+<aside class="w-[340px] flex flex-col gap-gutter">
+<div class="glass-card rounded-xl flex flex-col h-[calc(100vh-120px)] sticky top-gutter">
+<!-- Sidebar Tabs -->
+<div class="flex border-b border-glass-border">
+<button class="flex-1 py-4 text-primary border-b-2 border-primary font-bold font-label-md text-label-md">Chat</button>
+<button class="flex-1 py-4 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">Resources</button>
+<button class="flex-1 py-4 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">QA</button>
+</div>
+<!-- Chat Area -->
+<div class="flex-grow overflow-y-auto p-gutter flex flex-col gap-gutter">
+<!-- Message -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-secondary">Alex Rivers</span>
+<span class="text-[10px] text-outline">14:22</span>
+</div>
+<p class="text-sm bg-surface-container-low p-3 rounded-lg rounded-tl-none border border-outline-variant/30">Could you re-explain the Softmax derivation? The last step was a bit fast.</p>
+</div>
+<!-- Message -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-primary">Sarah Chen</span>
+<span class="text-[10px] text-outline">14:23</span>
+</div>
+<p class="text-sm bg-surface-container-low p-3 rounded-lg rounded-tl-none border border-outline-variant/30">I think it relates to the probability distribution across all output nodes.</p>
+</div>
+<!-- System Message -->
+<div class="bg-primary/5 p-3 rounded-lg border border-primary/10 text-center">
+<p class="text-[11px] font-label-md text-primary uppercase tracking-wider">Dr. Elena Vance uploaded a resource</p>
+</div>
+<!-- Message -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-tertiary">Marcus Thorne</span>
+<span class="text-[10px] text-outline">14:25</span>
+</div>
+<p class="text-sm bg-surface-container-low p-3 rounded-lg rounded-tl-none border border-outline-variant/30">Ready for the simulation part! The lab button just appeared for me.</p>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-gutter border-t border-glass-border">
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-3 pl-4 pr-12 focus:ring-2 focus:ring-primary focus:border-primary outline-none text-sm transition-all" placeholder="Type a message..." type="text"/>
+<button class="absolute right-2 top-1.5 bg-primary text-on-primary p-1.5 rounded-full hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-gutter mt-gutter">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="flex flex-col md:flex-row items-center gap-gutter">
+<span class="font-headline-md text-headline-md text-primary font-bold">DrilLab</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">© 2024 DrilLab Virtual Systems. All rights reserved.</span>
+</div>
+<div class="flex gap-gutter mt-4 md:mt-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">API Docs</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>

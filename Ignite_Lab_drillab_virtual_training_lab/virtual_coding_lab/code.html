@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IgniteLab - Virtual Lab Playground</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .syntax-keyword { color: #006877; font-weight: 600; }
+        .syntax-string { color: #9d4300; }
+        .syntax-comment { color: #6c797d; font-style: italic; }
+        .syntax-function { color: #835400; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#643f00",
+                        "inverse-primary": "#2fd9f4",
+                        "outline": "#6c797d",
+                        "on-tertiary-fixed": "#2a1800",
+                        "surface-muted": "#F1F5F9",
+                        "tertiary-fixed": "#ffddb5",
+                        "primary-fixed-dim": "#2fd9f4",
+                        "on-background": "#131b2e",
+                        "primary-container": "#22d3ee",
+                        "on-tertiary-container": "#6e4600",
+                        "primary-fixed": "#a2eeff",
+                        "primary": "#006877",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdbca",
+                        "surface-tint": "#006877",
+                        "on-primary-fixed-variant": "#004e5a",
+                        "surface-container-low": "#f2f3ff",
+                        "outline-variant": "#bbc9cd",
+                        "surface": "#faf8ff",
+                        "surface-container-high": "#e2e7ff",
+                        "on-secondary-container": "#5c2400",
+                        "surface-base": "#FFFFFF",
+                        "inverse-surface": "#283044",
+                        "tertiary-container": "#ffb13b",
+                        "tertiary": "#835400",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#783200",
+                        "glass-fill": "rgba(255, 255, 255, 0.7)",
+                        "on-primary-container": "#005763",
+                        "glass-border": "rgba(255, 255, 255, 0.4)",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001f25",
+                        "secondary": "#9d4300",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#131b2e",
+                        "surface-bright": "#faf8ff",
+                        "surface-variant": "#dae2fd",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#dae2fd",
+                        "surface-dim": "#d2d9f4",
+                        "secondary-container": "#fd761a",
+                        "inverse-on-surface": "#eef0ff",
+                        "surface-container": "#eaedff",
+                        "background": "#faf8ff",
+                        "on-surface-variant": "#3c494c",
+                        "secondary-fixed-dim": "#ffb690",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#341100",
+                        "tertiary-fixed-dim": "#ffb957",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-md": ["Geist"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-glass-fill dark:bg-inverse-surface/80 border-b border-glass-border shadow-[0_4px_20px_rgba(34,211,238,0.15)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="terminal">terminal</span>
+<h1 class="font-headline-lg text-primary dark:text-primary-fixed tracking-tight text-headline-md-mobile md:text-headline-md">IgniteLab</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-6">
+<span class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:bg-primary-container/20 transition-colors px-3 py-1 rounded-lg cursor-pointer">Documentation</span>
+<span class="font-label-md text-label-md text-primary dark:text-primary-fixed font-bold">Code</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-white shadow-sm">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChekcKDW3BTbDuWwu3W_o8dqjSnjEAUngqFD3nqtnBgG8o8ZgRGsF_40AgJB5eYufUi16y2rbkPcfzZFFw6ZI6V93qz2SeHZNgRmFmgAzHUXhB5ZXnXrwgxppHg3ZCPvSXtBWeOJL8XsseUv39Jol-D_Ih78bT6bWvi07mn6MvyvpYz3o0weSxBu0PRL8qk5NV82i_1zdNsjIl2BcEjNETS4PTy4uPh2xnPG1eb_EZvEJFnMXHcPT-5aJbMdqAHuSfQt6NLxEKVlA"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-16 md:pb-0 h-screen flex flex-col bg-surface">
+<!-- Virtual Lab Toolbar -->
+<div class="bg-surface-container px-margin-mobile md:px-margin-desktop py-3 flex flex-wrap items-center justify-between gap-4 border-b border-outline-variant/30">
+<div class="flex items-center gap-3">
+<div class="relative group">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2 pr-10 font-label-md text-label-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all cursor-pointer">
+<option>Python 3.10</option>
+<option>JavaScript (ES6)</option>
+<option>HTML/CSS</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant hidden sm:block"></div>
+<div class="flex items-center bg-surface-container-high rounded-lg p-1">
+<button class="px-3 py-1.5 rounded-md bg-surface-container-lowest text-primary shadow-sm font-label-md text-label-sm">Editor</button>
+<button class="px-3 py-1.5 rounded-md text-on-surface-variant font-label-md text-label-sm hover:bg-surface-container/50">Viewer</button>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface-variant hover:bg-error-container/20 hover:text-error hover:border-error transition-all font-label-md text-label-md active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="refresh">refresh</span>
+<span>Reset</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-2 bg-primary-container text-on-primary-container rounded-lg shadow-[0_4px_12px_rgba(34,211,238,0.3)] hover:brightness-105 active:scale-95 transition-all font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[20px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Run Lab</span>
+</button>
+</div>
+</div>
+<!-- Playground Layout -->
+<div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+<!-- Code Editor Section -->
+<div class="flex-1 flex flex-col min-h-0 bg-surface-container-lowest relative">
+<div class="flex items-center px-4 py-2 bg-surface-container-low border-b border-outline-variant/20 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] mr-2" data-icon="description">description</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">main.py</span>
+</div>
+<!-- Syntax Highlighted Area -->
+<div class="flex-1 overflow-auto font-['Geist_Mono'] p-6 leading-relaxed selection:bg-primary-container/30">
+<div class="flex gap-4">
+<div class="text-outline-variant text-right select-none opacity-50 text-[14px]">
+                            1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12
+                        </div>
+<div class="text-on-surface text-[14px] md:text-[16px] whitespace-pre">
+<span class="syntax-keyword">import</span> numpy <span class="syntax-keyword">as</span> np
+
+<span class="syntax-keyword">def</span> <span class="syntax-function">ignite_simulation</span>(params):
+    <span class="syntax-comment"># Initialize the quantum grid environment</span>
+    grid = np.zeros((10, 10))
+    
+    <span class="syntax-keyword">for</span> i <span class="syntax-keyword">in</span> <span class="syntax-function">range</span>(len(params)):
+        <span class="syntax-function">print</span>(<span class="syntax-string">f"Processing node {i}..."</span>)
+        grid[i] = params[i] * np.pi
+        
+    <span class="syntax-keyword">return</span> grid.mean()
+
+<span class="syntax-function">ignite_simulation</span>([0.5, 0.8, 1.2])<span class="animate-pulse border-r-2 border-primary ml-0.5"></span>
+</div>
+</div>
+</div>
+<!-- FAB - Mobile Contextual -->
+<button class="md:hidden absolute bottom-6 right-6 w-14 h-14 bg-secondary-container text-white rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[28px]" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</button>
+</div>
+<!-- Side Gutter / Resize (Desktop) -->
+<div class="hidden md:block w-1 bg-outline-variant/10 hover:bg-primary-container cursor-col-resize transition-colors"></div>
+<!-- Console / Output Section -->
+<div class="h-48 md:h-auto md:w-1/3 flex flex-col bg-inverse-surface border-t md:border-t-0 md:border-l border-outline/20">
+<div class="flex items-center justify-between px-4 py-2 bg-on-background/50 border-b border-white/5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary-fixed-dim" data-icon="terminal">terminal</span>
+<span class="font-label-sm text-label-sm text-surface-variant uppercase tracking-widest">Console Output</span>
+</div>
+<div class="flex gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error/40"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-container/40"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container/40"></span>
+</div>
+</div>
+<div class="flex-1 p-4 font-['Geist_Mono'] text-label-sm text-surface-bright/90 overflow-auto">
+<div class="mb-2">
+<span class="text-primary-fixed-dim font-bold">&gt;&gt;&gt; </span>
+<span>Initializing IgniteLab Environment...</span>
+</div>
+<div class="mb-2">
+<span class="text-primary-fixed-dim font-bold">&gt;&gt;&gt; </span>
+<span>Loading dependencies: [numpy, ignite-core, quantum-sim]</span>
+</div>
+<div class="mb-2 text-outline-variant">
+                        [SUCCESS] Virtual machine connected at port 8080
+                    </div>
+<div class="mb-2">
+<span class="text-primary-fixed-dim font-bold">&gt;&gt;&gt; </span>
+<span class="text-tertiary-fixed-dim">Processing node 0...</span>
+</div>
+<div class="mb-2">
+<span class="text-primary-fixed-dim font-bold">&gt;&gt;&gt; </span>
+<span class="text-tertiary-fixed-dim">Processing node 1...</span>
+</div>
+<div class="mb-2">
+<span class="text-primary-fixed-dim font-bold">&gt;&gt;&gt; </span>
+<span class="text-tertiary-fixed-dim">Processing node 2...</span>
+</div>
+<div>
+<span class="text-primary-fixed-dim font-bold">&gt;&gt;&gt; </span>
+<span class="text-primary-fixed">Result: 0.8333333333333334</span>
+</div>
+<div class="mt-4 flex gap-1">
+<span class="text-primary-fixed-dim font-bold">&gt;&gt;&gt; </span>
+<span class="w-2 h-4 bg-primary-fixed-dim animate-pulse"></span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 backdrop-blur-lg bg-glass-fill dark:bg-inverse-surface/90 rounded-t-xl border-t border-glass-border shadow-[0_-4px_20px_rgba(34,211,238,0.1)]">
+<div class="flex justify-around items-center h-16 w-full px-2">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-label-sm text-label-sm">Labs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+<span class="font-label-sm text-label-sm">Live</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container/30 text-on-primary-container rounded-xl px-3 py-1 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-label-sm text-label-sm">Code</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-sm text-label-sm">Stats</span>
+</button>
+</div>
+</nav>
+<!-- Background Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden opacity-30">
+<div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-primary-container blur-[120px]"></div>
+<div class="absolute bottom-[5%] right-[5%] w-[30%] h-[30%] rounded-full bg-secondary-container blur-[100px] opacity-40"></div>
+</div>
+</body></html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#643f00",
+                    "inverse-primary": "#2fd9f4",
+                    "outline": "#6c797d",
+                    "on-tertiary-fixed": "#2a1800",
+                    "surface-muted": "#F1F5F9",
+                    "tertiary-fixed": "#ffddb5",
+                    "primary-fixed-dim": "#2fd9f4",
+                    "on-background": "#131b2e",
+                    "primary-container": "#22d3ee",
+                    "on-tertiary-container": "#6e4600",
+                    "primary-fixed": "#a2eeff",
+                    "primary": "#006877",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffdbca",
+                    "surface-tint": "#006877",
+                    "on-primary-fixed-variant": "#004e5a",
+                    "surface-container-low": "#f2f3ff",
+                    "outline-variant": "#bbc9cd",
+                    "surface": "#faf8ff",
+                    "surface-container-high": "#e2e7ff",
+                    "on-secondary-container": "#5c2400",
+                    "surface-base": "#FFFFFF",
+                    "inverse-surface": "#283044",
+                    "tertiary-container": "#ffb13b",
+                    "tertiary": "#835400",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#783200",
+                    "glass-fill": "rgba(255, 255, 255, 0.7)",
+                    "on-primary-container": "#005763",
+                    "glass-border": "rgba(255, 255, 255, 0.4)",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#001f25",
+                    "secondary": "#9d4300",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#131b2e",
+                    "surface-bright": "#faf8ff",
+                    "surface-variant": "#dae2fd",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#dae2fd",
+                    "surface-dim": "#d2d9f4",
+                    "secondary-container": "#fd761a",
+                    "inverse-on-surface": "#eef0ff",
+                    "surface-container": "#eaedff",
+                    "background": "#faf8ff",
+                    "on-surface-variant": "#3c494c",
+                    "secondary-fixed-dim": "#ffb690",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed-dim": "#ffb957",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-md": ["Geist"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "label-sm": ["Geist"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-glass-fill border-b border-glass-border shadow-[0_4px_20px_rgba(34,211,238,0.15)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+<span class="font-headline-lg text-primary tracking-tight">IgniteLab</span>
+</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-primary font-bold transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant hover:bg-primary-container/20 px-3 py-2 rounded-lg transition-colors" href="#">Labs</a>
+<a class="text-on-surface-variant hover:bg-primary-container/20 px-3 py-2 rounded-lg transition-colors" href="#">Live</a>
+<a class="text-on-surface-variant hover:bg-primary-container/20 px-3 py-2 rounded-lg transition-colors" href="#">Code</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-primary-container/30 flex items-center justify-center overflow-hidden border border-primary/20">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A professional studio portrait of a young adult software engineer with a confident expression. The lighting is soft and high-key, following a modern light-mode aesthetic with subtle cyan rim lighting. The background is a clean, minimalist workspace with a slight blur, emphasizing the subject's intelligent and innovative personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAixPVP1BObB3C425BY2Lhj41TKmppQvk8d8m9bAqq2ih_2d2CykmZyOWN_4PgJ2t2O0BZw5Ns4_oXJHAxsqkaa12A3F6GHtuLgzy5qNqOTbjZAA5k_zaPxRpSKsiJxxTi5Ge7-TS9mRN4h6XfvHj7QmRNb-bKKUlJD8VvG7-ZDrgEtY4EM3K9qE9dBySyovs_wEXmHGtFwY0qqhN8qztz0kPNM5VzyZu5JP4rgYnid-SSCmYp_srCdmBwsLgUfDGwtSllfE9sUvCA"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero Search & Filter Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-gutter mb-10">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg mb-4 text-on-surface">Explore Virtual Labs</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Master high-tech skills through interactive simulations and real-world projects in our state-of-the-art digital cockpit.</p>
+</div>
+<div class="flex flex-col gap-3 w-full md:w-auto">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary" data-icon="search">search</span>
+<input class="w-full md:w-80 pl-12 pr-4 py-3 bg-surface-container-lowest border-none ring-1 ring-outline-variant focus:ring-2 focus:ring-primary rounded-xl transition-all shadow-sm" placeholder="Search courses or tools..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-lg shadow-primary/20 transition-transform active:scale-95">All Courses</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/30 transition-all">Software</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/30 transition-all">Hardware</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/30 transition-all">Robotics</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/30 transition-all">Quantum Computing</button>
+</div>
+</section>
+<!-- Bento Grid / Course Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: Featured -->
+<article class="glass-card rounded-xl overflow-hidden flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all group lg:col-span-2">
+<div class="relative h-64 w-full overflow-hidden">
+<img alt="Robotics Lab" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated robotics laboratory with high-tech articulated arms and futuristic circuitry. The scene is bathed in a crisp, light-mode aesthetic with bright white overhead lighting and vibrant cyan glowing accents on the robotic joints. The mood is precise, innovative, and energetically focused on advanced engineering technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzvp6iuTCpb5tjqfI4rWGLes1_3kJrqAMOa0cgJaA377fD9Je_RdA4h8yYJ0NJnzUhW5CwasZeCkqKXVPBm611x6abTqKqyFp9RUkaWltxPeEg7KkZ5ceF7XtlzH39h6_kmYrI21gKcEN1aoKRGktMc8l0UiPDbPs_3jsjwHCPEoe6wjQkym57C3O2Umt2gsJ9fTSp9sPbkijRvxrhaw_IkKL2XUHAkoyXyQB18bnPXctUVasBvClblKh4-ntdOK1AQrDL2PC-OvE"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="local_fire_department">local_fire_department</span>
+                        Trending Now
+                    </div>
+</div>
+<div class="p-gutter flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Introduction to Robotics</h2>
+<p class="text-on-surface-variant line-clamp-2">Learn the fundamentals of kinematics, sensor integration, and PID control in a fully simulated virtual environment.</p>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between pt-6 border-t border-glass-border">
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="text-label-sm font-label-sm">Beginner</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="schedule">schedule</span>
+<span class="text-label-sm font-label-sm">12 Hours</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-label-md text-label-md shadow-md active:scale-95 transition-all">Start Learning</button>
+</div>
+</div>
+</article>
+<!-- Card 2: AI -->
+<article class="glass-card rounded-xl overflow-hidden flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all group">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="Python AI" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A clean, minimalist digital workspace showing a glowing monitor with complex Python code for artificial intelligence. The environment is bright and airy with a modern glassmorphism aesthetic. Subtle cyan and deep blue gradients illuminate the keyboard, creating a high-tech atmosphere for a software developer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGDMOkYerHHJDGST9g1vKr5QHIWlVAiRnABVbFnQeYtv7xdDN3DhUCQnPZ907NJie3iZJkoXAFUeDGddjSCLP_ruOkBmd9KKYMWIuH_l_bhkyRUHQTW7NVRlvhBcJlcBST5aUJDWVcVnpEu5NxbpRJRAWqpdM-wAAet0PCk2uCcxzPYb61uC53E2UB8HtzZdIc4U278IdeZiDAhwpy0hO02Jp4cKPER6-hKyW2nvdeh4bouc_0kXjNYEEGyXqS8lNt9K2yP9t8DnM"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Python for AI</h3>
+<p class="text-on-surface-variant text-sm mb-6">Master NumPy, Pandas, and TensorFlow to build your first predictive neural network model.</p>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="bar_chart">bar_chart</span> Intermediate</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="timer">timer</span> 8h</span>
+</div>
+<button class="w-full border-2 border-primary text-primary hover:bg-primary-container/20 py-2.5 rounded-xl font-label-md text-label-md transition-all active:scale-95">Start Learning</button>
+</div>
+</div>
+</article>
+<!-- Card 3: Embedded Systems -->
+<article class="glass-card rounded-xl overflow-hidden flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all group">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="Embedded Systems" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A macro shot of a sophisticated circuit board with microscopic electronic components and gold pathways. The lighting is bright and technical, emphasizing the high-precision hardware engineering. The scene uses a light-mode palette with subtle glowing cyan indicators, conveying a modern and professional tech research aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXBGcXX-nvoj852JFIjOrmgX8bd3HBB_dlV70Wszkwg3azVVB50YuBNLQwOE_BJUW4Tz_cS_6Lq_1PkAUqEq12sPJa51sPLMzwGkXKpeBLTbL3cyatbL1eEcXPYkND1PkBeYUC8ZWeBfhio1zYzX9bhMCCXYADC7zLUM-1hJG0xA3qMw46W2P8OGlQO8XZ4UWaN40DB3NCsIRByRJ2KOBGMbTTwlf-P5HCOZSrJkzsVgNkbknzqcKk2BZxcITdVdlfOl3qWuibDns"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Embedded Systems</h3>
+<p class="text-on-surface-variant text-sm mb-6">Explore the architecture of microcontrollers and write low-level C code for real-time applications.</p>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="school">school</span> Advanced</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="timer">timer</span> 20h</span>
+</div>
+<button class="w-full border-2 border-primary text-primary hover:bg-primary-container/20 py-2.5 rounded-xl font-label-md text-label-md transition-all active:scale-95">Start Learning</button>
+</div>
+</div>
+</article>
+<!-- Card 4: Quantum Computing -->
+<article class="glass-card rounded-xl overflow-hidden flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all group">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="Quantum Computing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A conceptual representation of quantum computing featuring shimmering geometric patterns and particles in a bright, ethereal digital space. The visual style is highly modern and glassmorphic, with a focus on vibrant cyan and orange energy filaments. The atmosphere is energetic, suggesting cutting-edge scientific discovery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM0POzTi-VWGoAhCLZ6uPC4hg_oXvwYF9qYz-UiyckZ3byFsG7AguDvZsrT70fz-4lgiM4auPVRTlRguXPfSbN1txeqycStfRJJ87xGdPu2ClvzEnedJ8PbOl-VvY6XM79T5s4HBu3DjKx5JJPlrqPUVKPKUgKSvMEDKCnFSmh0d9yTgld9SBvzHyCCnaGOwOdPeV7T8CDMFCG8mqTKFERCFEC3ILHlUJCxOw2S6A4iUV9j8C-vKd0cMUiQTiqOCwU-D7Qv8tNZoI"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Quantum Simulation</h3>
+<p class="text-on-surface-variant text-sm mb-6">Understand qubits, entanglement, and the Deutsch-Jozsa algorithm using our virtual quantum processor.</p>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="psychology">psychology</span> Expert</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="timer">timer</span> 15h</span>
+</div>
+<button class="w-full border-2 border-primary text-primary hover:bg-primary-container/20 py-2.5 rounded-xl font-label-md text-label-md transition-all active:scale-95">Start Learning</button>
+</div>
+</div>
+</article>
+<!-- Card 5: Cloud Infrastructure -->
+<article class="glass-card rounded-xl overflow-hidden flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all group">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="Cloud Infrastructure" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A panoramic view of a massive, brightly lit server room with glowing blue status lights. The image features a high-key, modern aesthetic with glass reflections and a sense of vast scale. The lighting is dominated by crisp whites and vibrant cyan, representing advanced cloud computing and global data connectivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeRPbhPGAXhjkWynur43o20QRfYip098EHEyg6-OPzFbxb5dOkeAA-mpPhbne86Fp5O2_meJhIgEjvOshQaUJ_peruzk9ui-3lgGj6PMCcSp6TTSAukBVETSF_HcynE5PXQXSN2PLulwdeIMsuZQ0IctGQgaSmY5inzTMGuj_FbliMXSkxQWvEYAFRhAufc5bKQuvyCeIaiQWsoLnObfofzjaxvMMdSSmHYexuAJsk133EpxpOXYUDA7xI82tcUWE6Hw5dQTA3QHc"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Cloud DevOps</h3>
+<p class="text-on-surface-variant text-sm mb-6">Deploy scalable architectures using Kubernetes and AWS in our high-fidelity network sandbox.</p>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="settings_input_component">settings_input_component</span> Intermediate</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]" data-icon="timer">timer</span> 10h</span>
+</div>
+<button class="w-full border-2 border-primary text-primary hover:bg-primary-container/20 py-2.5 rounded-xl font-label-md text-label-md transition-all active:scale-95">Start Learning</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 backdrop-blur-lg bg-glass-fill border-t border-glass-border shadow-[0_-4px_20px_rgba(34,211,238,0.1)] rounded-t-xl">
+<div class="flex justify-around items-center h-16 w-full px-2">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container/30 text-on-primary-container rounded-xl px-3 py-1">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="text-label-sm font-label-sm">Labs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+<span class="text-label-sm font-label-sm">Live</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="text-label-sm font-label-sm">Code</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-label-sm font-label-sm">Stats</span>
+</div>
+</div>
+</nav>
+<!-- Contextual FAB (Only for main lab directory) -->
+<button class="fixed bottom-20 right-6 md:bottom-8 md:right-8 bg-tertiary-container text-on-tertiary-container p-4 rounded-full shadow-2xl shadow-tertiary/40 active:scale-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-md text-label-md hidden md:block">Ask Mentor</span>
+</button>
+</body></html>
