@@ -1,3 +1,5 @@
+![Ignite Lab](assets/banner.svg)
+
 # Ignite Lab — a virtual training lab for hands-on courses
 
 Course delivery for practical subjects: lessons, live sessions, an interactive 3D drill-lab module and role-separated staff accounts — built on Supabase so there is no server to maintain.
